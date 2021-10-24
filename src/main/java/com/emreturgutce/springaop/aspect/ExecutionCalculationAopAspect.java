@@ -13,7 +13,7 @@ public class ExecutionCalculationAopAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Around(
-            value = "execution(* com.emreturgutce.springaop.business.*.*(..))"
+            value = "com.emreturgutce.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()"
     )
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();

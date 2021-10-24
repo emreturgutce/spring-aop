@@ -16,7 +16,7 @@ public class AfterAopAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @AfterReturning(
-            value = "execution(* com.emreturgutce.springaop.business.*.*(..))",
+            value = "com.emreturgutce.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()",
             returning = "result"
     )
     public void afterReturning(JoinPoint joinPoint, Object result) {
@@ -24,7 +24,7 @@ public class AfterAopAspect {
     }
 
     @AfterThrowing(
-            value = "execution(* com.emreturgutce.springaop.business.*.*(..))",
+            value = "com.emreturgutce.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()",
             throwing = "exception"
     )
     public void afterThrowing(JoinPoint joinPoint, Exception exception) {
@@ -32,7 +32,7 @@ public class AfterAopAspect {
     }
 
     @After(
-            value = "execution(* com.emreturgutce.springaop.business.*.*(..))"
+            value = "com.emreturgutce.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()"
     )
     public void after(JoinPoint joinPoint) {
         logger.info("after execution of {}", joinPoint);
